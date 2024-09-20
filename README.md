@@ -30,7 +30,6 @@ Users should be able to:
 | :---------------------------------------------------: | :----------------------------------------------------: |
 |       ![](./screenshots/screenshot-mobile.png)        |       ![](./screenshots/screenshot-desktop.png)        |
 |                Mobile (active state):                 |                Desktop (active state):                 |
-|             :--------------------------:              |             :---------------------------:              |
 | ![](./screenshots/screenshot-mobile-active-state.png) | ![](./screenshots/screenshot-desktop-active-state.png) |
 
 ### Links
