@@ -1,0 +1,318 @@
+:root {
+  --ff-sans: "Manrope", sans-serif;
+
+  --fw-normal: 500;
+  --fw-bold: 700;
+
+  --fs-300: 0.8125rem; /* 13px */
+  --fs-600: 1rem; /* 16px */
+  --fs-700: 1.25rem; /* 20px */
+
+  --lh-narrower: 1.4; /* 20px/28px */
+  --lh-narrow: 1.5; /* 16px/24px */
+  --lh-normal: 1.538; /* 13px/20px */
+
+  --ls-normal: 0.12px;
+  --ls-expanded: 0.2px;
+  --ls-very-expanded: 5px;
+
+  --clr-neutral-900: #48556a;
+  --clr-neutral-700: #6e8098;
+  --clr-neutral-500: #9daec2;
+  --clr-neutral-300: #ecf2f8;
+  --clr-neutral-100: #ffffff;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+img,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+body {
+  background-color: #e5ecf4;
+}
+
+main {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  min-width: 327px;
+  max-width: 730px;
+  margin: 1.5rem;
+  margin-block-start: 17px;
+  --border-radius: 10px;
+  border-radius: var(--border-radius);
+  box-shadow: 0px 0px 50px rgb(0 0 0 / 5%);
+
+  color: var(--clr-neutral-700);
+  background-color: var(--clr-neutral-100);
+  font-family: var(--ff-sans);
+  font-weight: var(--fw-normal);
+  font-size: var(--fs-300);
+  letter-spacing: var(--ls-normal);
+  line-height: var(--lh-normal);
+
+  position: relative;
+  overflow: hidden;
+}
+
+.wrapper {
+  display: grid;
+}
+
+.card__text {
+  grid-row: 2;
+
+  padding-inline: 2rem;
+  padding-block-start: 2.25rem;
+  padding-block-end: 1.25rem;
+
+  display: grid;
+  gap: 0.8125rem;
+}
+
+.card__title {
+  color: var(--clr-neutral-900);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-expanded);
+  line-height: var(--lh-narrow);
+  font-size: var(--fs-600);
+  font-size: clamp(var(--fs-600), 0.85rem + 0.5vw, var(--fs-700));
+  /* font size: 16px to 20px */
+  /* https://royalfig.github.io/fluid-typography-calculator/
+  min viewport: 30rem (480px)
+  min viewport: 80rem (1280px)
+  font-size: 1rem;
+  font-size: clamp(1rem, 0.85rem + 0.5vw, 1.25rem); */
+}
+
+.card__info {
+  margin-block-start: 1.125rem;
+  display: grid;
+  grid-template-columns: 2.5rem 7.25rem 1fr;
+  grid-auto-flow: column;
+  column-gap: 1rem;
+  align-items: center;
+}
+
+.card__author-avatar {
+  width: 2.5rem;
+  height: auto;
+  border-radius: 50%;
+  grid-row: span 2;
+}
+
+.card__author {
+  color: var(--clr-neutral-900);
+  font-weight: var(--fw-bold);
+}
+
+.card__date {
+  color: var(--clr-neutral-500);
+}
+
+.card__img {
+  width: 100%;
+  height: 200px;
+  object-position: 0 -1rem;
+  object-fit: cover;
+}
+
+.card__share {
+  grid-row: span 2;
+  justify-self: end;
+}
+
+.card__share-btn,
+.card__share-btn:link,
+.card__share-btn:visited {
+  fill: var(--clr-neutral-700);
+  background-color: var(--clr-neutral-300);
+  border-radius: 50%;
+  padding-inline: calc((32px - 15px) / 2);
+  padding-block: calc((32px - 13px) / 2);
+  width: 2rem;
+  height: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.card__share-btn:hover,
+.card__share-btn:focus,
+.card__share-btn:active {
+  fill: var(--clr-neutral-100);
+  background-color: var(--clr-neutral-700);
+}
+
+.card__share-panel {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding-block: 1.875rem;
+  padding-inline: 2rem;
+  border-end-end-radius: var(--border-radius);
+  border-end-start-radius: var(--border-radius);
+
+  color: var(--clr-neutral-500);
+  background-color: var(--clr-neutral-900);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  z-index: 1;
+}
+
+.card__share-panel--hidden {
+  display: none;
+}
+
+.card__share-panel p {
+  text-transform: uppercase;
+  letter-spacing: var(--ls-very-expanded);
+}
+
+.card__share-icons {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 1rem;
+  height: 1.25rem;
+}
+
+.card__share-icon {
+  width: 20px;
+  aspect-ratio: 1;
+  max-width: fit-content;
+}
+
+@media (min-width: 40rem) {
+  .card {
+    margin-block-start: 24px;
+    overflow: visible;
+  }
+
+  .wrapper {
+    display: grid;
+    grid-template-columns: 1fr 445px;
+    grid-auto-flow: row dense;
+    align-items: stretch;
+  }
+
+  .card__img {
+    height: auto;
+    width: 100%;
+    object-position: 0px top;
+    border-top-left-radius: var(--border-radius);
+    border-bottom-left-radius: var(--border-radius);
+  }
+
+  .card__text {
+    grid-column: 2;
+    grid-row: 1;
+
+    padding-inline: 2.5rem;
+    padding-block-start: 2rem;
+    padding-block-end: 2rem;
+  }
+
+  .card__title {
+    line-height: var(--lh-narrower);
+  }
+
+  .card__info {
+    margin-block-start: 0.375rem;
+  }
+
+  .card__share-panel {
+    width: auto;
+    left: unset;
+    bottom: unset;
+    padding-block: 1.25rem;
+
+    /* Tooltip  */
+    /* triangle dimension */
+    --b: 2em; /* base */
+    --h: 1em; /* height */
+
+    --p: 50%; /* position  */
+    --r: var(--border-radius); /* the radius */
+    --c: var(--clr-neutral-900);
+
+    border-radius: var(--r);
+    clip-path: polygon(
+      0 100%,
+      0 0,
+      100% 0,
+      100% 100%,
+      min(100%, var(--p) + var(--b) / 2) 100%,
+      var(--p) calc(100% + var(--h)),
+      max(0%, var(--p) - var(--b) / 2) 100%
+    );
+    background: var(--c);
+    border-image: conic-gradient(var(--c) 0 0) fill 0 / var(--r)
+      calc(100% - var(--p) - var(--b) / 2) 0 calc(var(--p) - var(--b) / 2) / 0 0
+      var(--h) 0;
+
+    transform: translateX(calc(-1 * (50% - 1rem)))
+      translateY(calc(-1 * (100% + 3rem + var(--h))));
+  }
+}
+
+/* Attribution: 
+HTML5 Boilerplate - https://github.com/h5bp/html5-boilerplate/blob/main/dist/css/style.css */
+
+/*
+ * Hide only visually, but have it available for screen readers:
+ * https://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ *
+ * 1. For long content, line feeds are not interpreted as spaces and small width
+ *    causes content to wrap 1 word per line:
+ *    https://medium.com/@jessebeach/beware-smushed-off-screen-accessible-text-5952a4c2cbfe
+ */
+
+.visually-hidden {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+  /* 1 */
+}
+
+/*
+ * Extends the .visually-hidden class to allow the element
+ * to be focusable when navigated to via the keyboard:
+ * https://www.drupal.org/node/897638
+ */
+
+.visually-hidden.focusable:active,
+.visually-hidden.focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  white-space: inherit;
+  width: auto;
+}
