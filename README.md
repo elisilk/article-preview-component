@@ -55,7 +55,7 @@ This task was nominally about a basic introduction to Javascript by implementing
 On the other hand, the CSS that was needed to style the element that gets revealed felt much trickier than I first expected. In the mobile version, it wasn't that hard. But the desktop version gave me all kinds of difficulties such as the overflow, the stacking context, the positioning, the tail for the tooltip, etc. I'm not sure I have the best solution, or even an acceptable solution, but it seems to work decently well.
 
 - [Javascript](https://www.digitalocean.com/community/tutorials/how-to-modify-attributes-classes-and-styles-in-the-dom)
-- [Image sspect ratios](https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio)
+- [Image aspect ratios](https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio)
 - [CSS transform](https://developer.mozilla.org/en-US/docs/Web/CSS/transform)
 - Grid and flexbox (as always)
 - [Border radius](https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom-left-radius) and overflow
